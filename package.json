@@ -1,0 +1,21 @@
+{
+  "name": "sign2speech",
+  "version": "1.0.0",
+  "description": "El fin de este proyecto es de desarrollar un traductor que convierte el lenguaje de señas a texto y/o voz en español y viceversa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atomsk97/sign2speech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Atomsk97/sign2speech/issues"
+  },
+  "homepage": "https://github.com/Atomsk97/sign2speech#readme"
+}
