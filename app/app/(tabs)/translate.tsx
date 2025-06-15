@@ -1,4 +1,5 @@
 import AvatarFrame from "@/components/AvatarFrame";
+import { useAppContext } from "@/context/AppContext";
 import { Feather, SimpleLineIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import {
@@ -7,15 +8,17 @@ import {
   View,
   TouchableHighlight,
   Keyboard,
+  ScrollView,
 } from "react-native";
 
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+//import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function TranslateScreen() {
   const [translatedText, setTranslatedText] = useState<string>("");
+  const { cameraPermissionStatus, requestCameraPermission } = useAppContext();
 
   return (
-    <KeyboardAwareScrollView
+    <ScrollView
       className="flex-1 bg-secondary"
       contentContainerStyle={{
         flexGrow: 1,
@@ -24,9 +27,6 @@ export default function TranslateScreen() {
         paddingBottom: 8,
       }}
       bounces={false}
-      extraScrollHeight={142}
-      enableOnAndroid={true}
-      enableAutomaticScroll={true}
       onScrollBeginDrag={() => Keyboard.dismiss()}
       keyboardShouldPersistTaps="handled"
     >
@@ -64,7 +64,18 @@ export default function TranslateScreen() {
               setTranslatedText(e.nativeEvent.text.trim());
             }}
           />
-          <TouchableHighlight className="bg-primary/80 rounded-full p-4">
+          <TouchableHighlight
+            className="bg-primary/80 rounded-full p-4"
+            onPress={() => {
+              if (cameraPermissionStatus === "not-determined") {
+                requestCameraPermission();
+              } else if (cameraPermissionStatus === "denied") {
+                console.warn("Camera permission denied");
+              } else {
+                console.log("Camera permission granted, ready to use camera");
+              }
+            }}
+          >
             <Feather name="camera" size={24} color={"white"} />
           </TouchableHighlight>
         </View>
@@ -72,6 +83,6 @@ export default function TranslateScreen() {
           <Feather name="mic" size={24} color={"white"} />
         </TouchableHighlight>
       </View>
-    </KeyboardAwareScrollView>
+    </ScrollView>
   );
 }
