@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+#vscode
+.vscode/
+
 # Expo
 .expo/
 dist/
@@ -11,6 +14,7 @@ expo-env.d.ts
 
 # Native
 .kotlin/
+android/
 *.orig.*
 *.jks
 *.p8
