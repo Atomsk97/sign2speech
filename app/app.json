@@ -11,8 +11,8 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "Sign2speech needs access to your camera.",
-        "NSMicrophoneUsageDescription": "Sign2speech needs access to your microphone."
+        "NSCameraUsageDescription": "Sign2speech necesita acceder a la camara.",
+        "NSMicrophoneUsageDescription": "Sign2speech necesita acceder al microfono."
       }
     },
     "android": {
@@ -25,7 +25,7 @@
         "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.atomsk97.sign2speechapp"
+      "package": "com.uni.sign2speechapp"
     },
     "web": {
       "bundler": "metro",
@@ -46,14 +46,14 @@
       [
         "react-native-vision-camera",
         {
-          "cameraPermissionText": "Sign2speech necesita acceder a la camara."
+          "cameraPermissionText": "Permitir Sign2speech de acceder a la camara."
         }
       ],
       [
         "expo-speech-recognition",
         {
-          "microphonePermission": "Allow Sign2speech to use the microphone.",
-          "speechRecognitionPermission": "Allow Sign2speech to use speech recognition.",
+          "microphonePermission": "Permitir Sign2speech de usar el microfono.",
+          "speechRecognitionPermission": "Permitir Sign2speech de usar reconocimiento de voz.",
           "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
         }
       ]
